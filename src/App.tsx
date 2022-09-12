@@ -1,25 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { createContext } from 'react';
 import './App.css';
+
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import BaseLayout from './layout/Base';
+
+declare global {
+  interface Window {
+    config: any;
+  }
+}
+
+export const { config = {} } = window;
+
+export const Config = createContext(config);
+
+export const themeOptions = createTheme({
+  ...(config?.theme || {}),
+});
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Config.Provider value={config}>
+      <ThemeProvider theme={themeOptions}>
+        <BaseLayout>123</BaseLayout>
+      </ThemeProvider>
+    </Config.Provider>
   );
 }
 
