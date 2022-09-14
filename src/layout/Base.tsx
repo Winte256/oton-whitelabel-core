@@ -1,8 +1,12 @@
 import * as React from 'react';
+import CommonFooter from '../components/CommonFooter';
+import CommonHeader from '../components/CommonHeader';
 
-interface IBaseLayoutProps {}
+interface IBaseLayoutProps extends React.PropsWithChildren {
+  
+}
 
-const BaseLayout: React.FC<IBaseLayoutProps> = ({ children }) => {
+const BaseLayout: React.FunctionComponent<IBaseLayoutProps> = ({ children }) => {
   return (
     <>
       <CommonHeader></CommonHeader>

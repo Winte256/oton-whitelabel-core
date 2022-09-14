@@ -1,8 +1,8 @@
 import React, { createContext } from 'react';
-import './App.css';
-
+import '../public/favicon.ico';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import BaseLayout from './layout/Base';
+import { Counter } from './components/Counter';
 
 declare global {
   interface Window {
@@ -22,7 +22,9 @@ function App() {
   return (
     <Config.Provider value={config}>
       <ThemeProvider theme={themeOptions}>
-        <BaseLayout>123</BaseLayout>
+        <BaseLayout>
+          <Counter/>
+        </BaseLayout>
       </ThemeProvider>
     </Config.Provider>
   );
