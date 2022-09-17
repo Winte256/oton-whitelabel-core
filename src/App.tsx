@@ -1,5 +1,5 @@
 import React, { createContext } from 'react';
-import '../public/favicon.ico';
+// import '../public/favicon.ico';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import BaseLayout from './layout/Base';
 import { Counter } from './components/Counter';
@@ -18,16 +18,14 @@ export const themeOptions = createTheme({
   ...(config?.theme || {}),
 });
 
-function App() {
+const App: React.FC<React.PropsWithChildren> = ({ children }) => {
   return (
     <Config.Provider value={config}>
       <ThemeProvider theme={themeOptions}>
-        <BaseLayout>
-          <Counter/>
-        </BaseLayout>
+        <BaseLayout>{children || <Counter />}</BaseLayout>
       </ThemeProvider>
     </Config.Provider>
   );
-}
+};
 
 export default App;
