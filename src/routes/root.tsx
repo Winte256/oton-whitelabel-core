@@ -13,7 +13,7 @@ const Root = () => {
         }}
       >
         {linksList.map((to) => (
-          <ListItem disablePadding>
+          <ListItem key={to} disablePadding>
             <ListItemButton
               component={NavLink}
               to={to}

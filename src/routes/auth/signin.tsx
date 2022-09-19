@@ -1,9 +1,11 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 type Props = {};
 
 const Signin = (props: Props) => {
-  return <div>Signin page</div>;
+  const { t } = useTranslation('auth');
+  return <div>{t('signin')} page</div>;
 };
 
 export default Signin;

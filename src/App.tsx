@@ -1,4 +1,4 @@
-import React, { createContext } from 'react';
+import React, { createContext, Suspense } from 'react';
 // import '../public/favicon.ico';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
@@ -22,7 +22,7 @@ const App: React.FC<React.PropsWithChildren> = ({ children }) => {
   return (
     <Config.Provider value={config}>
       <ThemeProvider theme={themeOptions}>
-        {children || <Counter />}
+        <Suspense fallback="loading">{children || <Counter />}</Suspense>
       </ThemeProvider>
     </Config.Provider>
   );

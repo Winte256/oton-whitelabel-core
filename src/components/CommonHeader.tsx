@@ -1,15 +1,16 @@
 import * as React from 'react';
+import LanguageSwitcher from './LanguageSwitcher';
 
-interface ICommonHeaderProps extends React.PropsWithChildren {
+interface ICommonHeaderProps extends React.PropsWithChildren {}
 
+const CommonHeader: React.FunctionComponent<ICommonHeaderProps> = ({
+  children,
+}) => {
+  return (
+    <header>
+      <LanguageSwitcher />
+    </header>
+  );
 };
 
-const CommonHeader: React.FunctionComponent<ICommonHeaderProps> = ({ children }) => {
-    return (
-      <header>
-        header
-      </header>
-    );
-  };
-  
-  export default CommonHeader;
+export default CommonHeader;
