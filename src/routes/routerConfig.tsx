@@ -6,11 +6,15 @@ import Auth from './auth';
 import Signin from './auth/signin';
 import Signup from './auth/signup';
 import Dashboard from './dashboard';
+import FatalError from './500';
+import NoMatch from './404';
 
 export default createBrowserRouter([
   {
     path: '/',
     element: <Root />,
+    errorElement: <FatalError />,
+
     children: [
       {
         path: 'auth',
@@ -31,5 +35,9 @@ export default createBrowserRouter([
         element: <Dashboard />,
       },
     ],
+  },
+  {
+    path: '*',
+    element: <NoMatch />,
   },
 ]);

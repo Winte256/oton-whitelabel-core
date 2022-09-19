@@ -1,10 +1,11 @@
 import { List, ListItem, ListItemButton, ListItemText } from '@mui/material';
 import { NavLink, Outlet } from 'react-router-dom';
+import BaseLayout from '../layout/Base';
 
 const Root = () => {
   const linksList = ['/auth', '/auth/signin', '/auth/signup', '/dashboard'];
   return (
-    <>
+    <BaseLayout>
       <List
         sx={{
           width: 300,
@@ -29,7 +30,7 @@ const Root = () => {
       </List>
 
       <Outlet />
-    </>
+    </BaseLayout>
   );
 };
 
