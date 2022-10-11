@@ -6,6 +6,9 @@ import Auth from './auth';
 import Signin from './auth/signin';
 import Signup from './auth/signup';
 import Dashboard from './dashboard';
+import Team from './team';
+import Pools from './pools';
+import Transactions from './transactions';
 import FatalError from './500';
 import NoMatch from './404';
 
@@ -17,22 +20,34 @@ export default createBrowserRouter([
 
     children: [
       {
-        path: 'auth',
-        element: <Auth />,
-        children: [
-          {
-            path: 'signin',
-            element: <Signin />,
-          },
-          {
-            path: 'signup',
-            element: <Signup />,
-          },
-        ],
-      },
-      {
         path: 'dashboard',
         element: <Dashboard />,
+      },
+      {
+        path: 'team',
+        element: <Team />
+      },
+      {
+        path: 'pools',
+        element: <Pools />
+      },
+      {
+        path: 'transactions',
+        element: <Transactions />
+      },
+    ],
+  },
+  {
+    path: 'auth',
+    element: <Auth />,
+    children: [
+      {
+        path: 'signin',
+        element: <Signin />,
+      },
+      {
+        path: 'signup',
+        element: <Signup />,
       },
     ],
   },

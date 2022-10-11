@@ -1,6 +1,7 @@
 import React, { createContext, Suspense } from 'react';
 // import '../public/favicon.ico';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { Box } from '@mui/material';
 
 import { Counter } from './components/Counter';
 
@@ -22,7 +23,12 @@ const App: React.FC<React.PropsWithChildren> = ({ children }) => {
   return (
     <Config.Provider value={config}>
       <ThemeProvider theme={themeOptions}>
-        <Suspense fallback="loading">{children || <Counter />}</Suspense>
+        <Box sx={{
+          bgcolor: 'background.default',
+          height: '100vw'
+        }}>
+          <Suspense fallback="loading">{children || <Counter />}</Suspense>
+        </Box>
       </ThemeProvider>
     </Config.Provider>
   );
