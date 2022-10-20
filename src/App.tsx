@@ -25,7 +25,7 @@ const App: React.FC<React.PropsWithChildren> = ({ children }) => {
       <ThemeProvider theme={themeOptions}>
         <Box sx={{
           bgcolor: 'background.default',
-          height: '100vw'
+          height: '100vh'
         }}>
           <Suspense fallback="loading">{children || <Counter />}</Suspense>
         </Box>

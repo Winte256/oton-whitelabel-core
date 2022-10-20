@@ -3,10 +3,11 @@ import { NavLink, Outlet } from 'react-router-dom';
 import BaseLayout from '../layout/Base';
 
 const Root = () => {
-  const linksList = ['/auth', '/auth/signin', '/auth/signup', '/dashboard'];
+  // const linksList = ['/auth', '/auth/signin', '/auth/signup', '/dashboard'];
+  
   return (
     <BaseLayout>
-      <List
+      {/* <List
         sx={{
           width: 300,
           mb: '30px',
@@ -27,7 +28,7 @@ const Root = () => {
             </ListItemButton>
           </ListItem>
         ))}
-      </List>
+      </List> */}
 
       <Outlet />
     </BaseLayout>

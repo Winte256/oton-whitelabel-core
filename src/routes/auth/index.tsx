@@ -6,7 +6,6 @@ type Props = {};
 const Auth = (props: Props) => {
   return (
     <div>
-      Auth page
       <Outlet />
     </div>
   );

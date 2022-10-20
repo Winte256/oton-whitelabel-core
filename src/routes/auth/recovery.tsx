@@ -1,12 +1,10 @@
-import { useTranslation } from 'react-i18next';
 import { Box } from '@mui/system';
 import CommonCard from '../../components/CommonCard';
-import SignInForm from '../../components/SignInForm';
+import RecoveryForm from '../../components/RecoveryForm';
 
 type Props = {};
 
-const Signin = (props: Props) => {
-  const { t } = useTranslation('auth');
+const Recovery = (props: Props) => {
   return (
     <div>
       <Box sx={{
@@ -17,7 +15,7 @@ const Signin = (props: Props) => {
           marginTop: '30vh'
         }}>
           <CommonCard fixedWidth={354} bgColor={'background.default'}>
-            <SignInForm/>  
+            <RecoveryForm/>  
           </CommonCard>
         </Box>
       </Box>
@@ -25,4 +23,4 @@ const Signin = (props: Props) => {
   );
 };
 
-export default Signin;
+export default Recovery;
