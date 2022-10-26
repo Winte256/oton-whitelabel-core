@@ -1,11 +1,13 @@
 import { Grid, Typography } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import DashboardCard from '../components/DashboardCard';
+import useLinearStats from './hooks/useLinearStats';
 
 type Props = {};
 
 const TeamStats = (props: Props) => {
   const { t } = useTranslation('team');
+  const { stats, isLoading, isError } = useLinearStats();
 
   return (
     <Grid container spacing={3}>
@@ -15,7 +17,7 @@ const TeamStats = (props: Props) => {
             <Typography sx={{
               fontSize: '24px'
             }}>
-              13
+              { stats && stats.all }
             </Typography>
           </>
         </DashboardCard>
@@ -26,7 +28,7 @@ const TeamStats = (props: Props) => {
             <Typography sx={{
               fontSize: '24px'
             }}>
-              13
+              { stats && stats.week }
             </Typography>
           </>
         </DashboardCard>
@@ -37,7 +39,7 @@ const TeamStats = (props: Props) => {
             <Typography sx={{
               fontSize: '24px'
             }}>
-              13
+              { stats && stats['2week'] }
             </Typography>
           </>
         </DashboardCard>

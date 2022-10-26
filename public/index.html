@@ -38,86 +38,87 @@
   </head>
   <body>
     <script>
-      // var config = {
-      //   env: {
-      //     assetsServer: 'https://cdn.jsdelivr.net/gh/ArtemZubarev/oton-core-assets@main',
-      //     apiUrl: 'https://631ec97358a1c0fe9f57f28a.mockapi.io/api/v1',
-      //     langs: ['en', 'de', 'ru', 'tr']
-      //   },
-      //   company: {
-      //     name: 'Aton',
-      //     menu: [
-      //       {
-      //         title: 'Dashboard',
-      //         name: 'dashboard',
-      //         to: '/dashboard'
-      //       },
-      //       {
-      //         title: 'ATON Team',
-      //         name: 'team',
-      //         to: '/team'
-      //       },
-      //       {
-      //         title: 'ATON Pools',
-      //         name: 'pools',
-      //         to: '/pools'
-      //       },
-      //       {
-      //         title: 'Comissions',
-      //         name: 'transactions',
-      //         to: '/transactions'
-      //       },
-      //       {
-      //         title: 'News',
-      //         name: 'news',
-      //         to: '/news'
-      //       },
-      //       {
-      //         title: 'Media',
-      //         name: 'media',
-      //         to: '/media'
-      //       }
-      //     ],
-      //     media: [
-      //       {
-      //         name: 'documents',
-      //         files: [
-      //           {
-      //             name: 'General Terms & Conditions',
-      //             en: 'https://www.africau.edu/images/default/sample.pdf',
-      //           }
-      //         ]
-      //       },
-      //       {
-      //         name: 'presentations',
-      //         files: [
-      //           {
-      //             name: 'Some presentation',
-      //             en: 'https://www.africau.edu/images/default/sample.pdf',
-      //           }
-      //         ]
-      //       }
-      //     ],
-      //   },
-      //   theme: {
-      //     palette: {
-      //       mode: 'dark',
+      var config = {
+        env: {
+          assetsServer: 'https://cdn.jsdelivr.net/gh/ArtemZubarev/oton-core-assets@main',
+          apiUrl: 'http://localhost:5000',
+          baseUrl: 'http://sample-client-site.com',
+          langs: ['en', 'de', 'ru', 'tr']
+        },
+        company: {
+          name: 'Aton',
+          menu: [
+            {
+              title: 'Dashboard',
+              name: 'dashboard',
+              to: '/dashboard'
+            },
+            {
+              title: 'ATON Team',
+              name: 'team',
+              to: '/team'
+            },
+            {
+              title: 'ATON Pools',
+              name: 'pools',
+              to: '/pools'
+            },
+            {
+              title: 'Comissions',
+              name: 'transactions',
+              to: '/transactions'
+            },
+            {
+              title: 'News',
+              name: 'news',
+              to: '/news'
+            },
+            {
+              title: 'Media',
+              name: 'media',
+              to: '/media'
+            }
+          ],
+          media: [
+            {
+              name: 'documents',
+              files: [
+                {
+                  name: 'General Terms & Conditions',
+                  en: 'https://www.africau.edu/images/default/sample.pdf',
+                }
+              ]
+            },
+            {
+              name: 'presentations',
+              files: [
+                {
+                  name: 'Some presentation',
+                  en: 'https://www.africau.edu/images/default/sample.pdf',
+                }
+              ]
+            }
+          ],
+        },
+        theme: {
+          palette: {
+            mode: 'dark',
 
-      //       background: {
-      //         default: '#222222',
-      //         paper: '#1C1C1C',
-      //         header: '#1C1C1C',
-      //         card: '#3A3A3A'
-      //       },
-      //       primary: {
-      //         main: '#FFE86B',
-      //       },
-      //       secondary: {
-      //         main: '#90CAF9',
-      //       },
-      //     },
-      //   },
-      // };
+            background: {
+              default: '#222222',
+              paper: '#1C1C1C',
+              header: '#1C1C1C',
+              card: '#3A3A3A'
+            },
+            primary: {
+              main: '#FFE86B',
+            },
+            secondary: {
+              main: '#90CAF9',
+            },
+          },
+        },
+      };
     </script>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>

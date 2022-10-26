@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit'
 import counterReducer from './modules/counter'
+import linearReducer from './modules/linear'
 
 export const store = configureStore({
   reducer: {
     counter: counterReducer,
+    linear: linearReducer
   },
 })
 

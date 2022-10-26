@@ -1,12 +1,13 @@
-import * as React from 'react';
-import {
-  useNavigate,
-} from 'react-router-dom';
+import React, { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import Cookies from 'js-cookie';
 import LanguageSwitcher from './LanguageSwitcher';
 import { AppBar, Toolbar, IconButton, Menu, MenuItem, Box } from '@mui/material';
 import { AccountCircle } from '@mui/icons-material';
 import RefClipboard from './RefClipboard';
+import useUserInfo from './hooks/useUserInfo';
+import { Config } from '../App';
 
 
 interface ICommonHeaderProps extends React.PropsWithChildren {}
@@ -14,6 +15,10 @@ interface ICommonHeaderProps extends React.PropsWithChildren {}
 const CommonHeader: React.FunctionComponent<ICommonHeaderProps> = ({
   children,
 }) => {
+  const config = useContext(Config)
+  const auth = Cookies.get('auth');
+  const { user, isLoading, isError } = useUserInfo(auth);
+  const refUrl = !!user ? `${config.env.baseUrl}/?ref=${user.id}` : '';
   const { t } = useTranslation();
 
   const navigate = useNavigate();
@@ -73,7 +78,7 @@ const CommonHeader: React.FunctionComponent<ICommonHeaderProps> = ({
           justifyContent: 'space-between',
           bgcolor: 'background.header'
         }}>
-          <RefClipboard refLink={'http://aton.com/ref/123JASDp24fqw'}/>
+          <RefClipboard refLink={refUrl}/>
 
           <LanguageSwitcher />
 

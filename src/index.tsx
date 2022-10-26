@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { RouterProvider } from 'react-router-dom';
+import { SnackbarProvider } from 'notistack';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import { store } from './store/index';
@@ -15,11 +16,13 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <App>
-        <RouterProvider router={routerConfig} />
-      </App>
-    </Provider>
+    <SnackbarProvider maxSnack={6}>
+      <Provider store={store}>
+        <App>
+          <RouterProvider router={routerConfig} />
+        </App>
+      </Provider>
+    </SnackbarProvider>
   </React.StrictMode>,
 );
 

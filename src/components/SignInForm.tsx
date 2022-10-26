@@ -1,3 +1,6 @@
+import { useState } from 'react';
+import Cookies from 'js-cookie';
+import { useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next';
 import { 
   Typography, 
@@ -8,11 +11,45 @@ import {
   Divider,
   Link
 } from '@mui/material';
+import fetcher from '../utils/fetcher';
+import { useSnackbar } from 'notistack';
 
 type Props = {};
 
 const SignInForm = (props: Props) => {
   const { t } = useTranslation('auth');
+  const [ login, setLogin ] = useState('');
+  const [ password, setPassword ] = useState('');
+  const { enqueueSnackbar } = useSnackbar();
+  const navigate = useNavigate();
+
+  const handleLogin = async () => {
+    if (login.trim() && password.trim()) {
+      const fetchAuth = await fetcher({
+        url: '/signIn',
+        data: {
+          login,
+          password
+        }
+      });
+
+      if (fetchAuth && fetchAuth.auth) {
+        Cookies.set('auth', fetchAuth.auth, { expires: 30 });
+        
+        return navigate("/dashboard");
+      }
+    } 
+    if (!login) {
+      enqueueSnackbar(t('Login cannot be empty'), {
+        variant: 'error'
+      });
+    } 
+    if (!password) {
+      enqueueSnackbar(t('Password cannot be empty'), {
+        variant: 'error'
+      });
+    } 
+  }
 
   return (
     <>
@@ -35,6 +72,8 @@ const SignInForm = (props: Props) => {
             width: '100%',
             marginBottom: '12px',
           }}
+          value={login}
+          onChange={(e) => setLogin(e.target.value)}
         />
         <TextField 
           id="outlined-basic" 
@@ -46,6 +85,8 @@ const SignInForm = (props: Props) => {
             width: '100%',
             marginBottom: '12px',
           }}
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
         />
         
         <Button
@@ -53,6 +94,7 @@ const SignInForm = (props: Props) => {
           sx={{
             textTransform: 'uppercase'
           }}
+          onClick={handleLogin}
         >
           {t('Login')}
         </Button>

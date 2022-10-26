@@ -1,11 +1,15 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import Cookies from 'js-cookie';
 import { Box, Typography, Paper, TextField, Button } from '@mui/material';
+import useUserInfo from '../components/hooks/useUserInfo';
 
 type Props = {};
 
 const Profile = (props: Props) => {
   const { t } = useTranslation('profile');
+  const auth = Cookies.get('auth');
+  const { user, isLoading, isError } = useUserInfo(auth);
 
   return (
     <Paper elevation={0} sx={{ bgcolor: 'background.default' }}>

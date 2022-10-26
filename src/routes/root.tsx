@@ -1,35 +1,15 @@
-import { List, ListItem, ListItemButton, ListItemText } from '@mui/material';
-import { NavLink, Outlet } from 'react-router-dom';
+import { Outlet, Navigate } from 'react-router-dom';
+import Cookies from 'js-cookie';
 import BaseLayout from '../layout/Base';
 
 const Root = () => {
-  // const linksList = ['/auth', '/auth/signin', '/auth/signup', '/dashboard'];
+  const hasAuth = Cookies.get('auth');
   
+  if (!hasAuth) {
+    return <Navigate to="/auth/signin" />;
+  }
   return (
     <BaseLayout>
-      {/* <List
-        sx={{
-          width: 300,
-          mb: '30px',
-        }}
-      >
-        {linksList.map((to) => (
-          <ListItem key={to} disablePadding>
-            <ListItemButton
-              component={NavLink}
-              to={to}
-              sx={{
-                '&.active': {
-                  bgcolor: 'action.selected',
-                },
-              }}
-            >
-              <ListItemText primary={to} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List> */}
-
       <Outlet />
     </BaseLayout>
   );
